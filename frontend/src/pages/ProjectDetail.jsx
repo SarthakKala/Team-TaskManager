@@ -137,7 +137,7 @@ export default function ProjectDetail() {
           onClick={() => navigate('/projects')}
           className="font-mono text-sm font-bold mb-6 hover:underline flex items-center gap-1"
         >
-          <- BACK TO PROJECTS
+          - BACK TO PROJECTS
         </button>
 
         {/* Project Header */}

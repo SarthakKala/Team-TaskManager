@@ -61,7 +61,7 @@ export default function Sidebar() {
           className="w-full border-2 border-black bg-white text-black font-mono font-bold text-sm py-2 px-4 hover:bg-black hover:text-white transition-colors"
           style={{ boxShadow: '2px 2px 0px #000' }}
         >
-          LOGOUT ->
+          LOGOUT
         </button>
       </div>
     </aside>

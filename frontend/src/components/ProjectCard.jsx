@@ -35,7 +35,7 @@ export default function ProjectCard({ project }) {
 
       <div className="mt-3">
         <span className="font-mono text-xs font-bold hover:underline">
-          VIEW PROJECT ->
+            VIEW PROJECT
         </span>
       </div>
     </div>

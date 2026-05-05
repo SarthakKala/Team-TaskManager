@@ -103,7 +103,7 @@ export default function Login() {
         <p className="mt-4 text-center font-mono text-sm">
           No account?{' '}
           <Link to="/signup" className="font-bold underline hover:no-underline">
-            CREATE ONE ->
+            CREATE ONE
           </Link>
         </p>
       </div>
