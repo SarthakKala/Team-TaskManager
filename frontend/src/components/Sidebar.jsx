@@ -29,13 +29,18 @@ export default function Sidebar() {
   return (
     <aside className="w-64 min-h-screen bg-paper border-r-2 border-black flex flex-col">
       {/* Logo */}
-      <div className="p-6 border-b-2 border-black">
-        <h1 className="font-heading font-black text-2xl uppercase leading-none">
-          TASK<br />
-          <span className="text-4xl">MGR.</span>
+      <div className="p-5 border-b-2 border-black bg-white">
+        <p className="font-mono text-[10px] tracking-[0.24em] uppercase text-gray-600 mb-2">
+          Team Workspace
+        </p>
+        <h1 className="font-heading font-bold text-[28px] leading-none uppercase">
+          TeamTask
         </h1>
+        <p className="font-mono text-xs uppercase tracking-wider mt-1">
+          Manager
+        </p>
         {isAdmin && (
-          <span className="inline-block mt-2 border-2 border-black bg-black text-white text-xs font-mono font-bold px-2 py-0.5">
+          <span className="inline-block mt-3 border-2 border-black bg-black text-white text-xs font-mono font-bold px-2 py-0.5">
             ADMIN
           </span>
         )}

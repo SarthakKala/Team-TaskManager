@@ -5,7 +5,8 @@ import api from '../api/axios.js';
 const STATUS_OPTIONS = ['TODO', 'IN_PROGRESS', 'DONE', 'OVERDUE'];
 
 export default function TaskCard({ task, onUpdate, onDelete }) {
-  const { isAdmin } = useAuth();
+  const { isAdmin, user } = useAuth();
+  const canEditStatus = task.assignedTo?.id === user?.id;
 
   const handleStatusChange = async (e) => {
     try {
@@ -66,7 +67,8 @@ export default function TaskCard({ task, onUpdate, onDelete }) {
         <select
           value={task.status}
           onChange={handleStatusChange}
-          className="flex-1 border-2 border-black bg-paper font-mono text-xs py-1 px-2 cursor-pointer focus:outline-none"
+          disabled={!canEditStatus}
+          className="flex-1 border-2 border-black bg-paper font-mono text-xs py-1 px-2 cursor-pointer focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {STATUS_OPTIONS.map((s) => (
             <option key={s} value={s}>
@@ -74,6 +76,11 @@ export default function TaskCard({ task, onUpdate, onDelete }) {
             </option>
           ))}
         </select>
+        {!canEditStatus && (
+          <span className="font-mono text-[10px] text-gray-500 whitespace-nowrap">
+            assignee only
+          </span>
+        )}
         {isAdmin && (
           <button
             onClick={handleDelete}

@@ -9,7 +9,7 @@ const configs = {
   },
   DONE: {
     label: 'DONE',
-    className: 'bg-gray-200 text-gray-600 border-2 border-gray-400',
+    className: 'bg-white text-black border-2 border-black',
   },
   OVERDUE: {
     label: 'OVERDUE',

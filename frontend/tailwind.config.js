@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Syne', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        heading: ['"Emilys Candy"', 'serif'],
+        mono: ['"IBM Plex Serif"', 'serif'],
       },
       boxShadow: {
         retro: '4px 4px 0px #000000',

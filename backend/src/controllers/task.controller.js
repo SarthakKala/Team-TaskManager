@@ -79,6 +79,19 @@ const updateTaskStatus = async (req, res) => {
   }
 
   try {
+    const existingTask = await prisma.task.findUnique({
+      where: { id: req.params.id },
+      select: { id: true, assignedToId: true },
+    });
+
+    if (!existingTask) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+
+    if (!existingTask.assignedToId || existingTask.assignedToId !== req.user.id) {
+      return res.status(403).json({ message: 'Only the assigned user can update task status' });
+    }
+
     const task = await prisma.task.update({
       where: { id: req.params.id },
       data: { status },

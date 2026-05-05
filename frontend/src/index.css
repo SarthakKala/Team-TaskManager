@@ -8,10 +8,22 @@
 
 body {
   background-color: #f5f5f0;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Serif', serif;
   color: #000;
   margin: 0;
   padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Emilys Candy', serif;
+  }
 }
 
 /* Retro card hover effect */
@@ -47,3 +59,50 @@ body {
 .noise-bg {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
+
+/* Dark theme */
+.dark body {
+  background-color: #101010;
+  color: #f5f5f0;
+}
+
+.dark .bg-paper {
+  background-color: #1a1a1a !important;
+}
+
+.dark .bg-white {
+  background-color: #202020 !important;
+}
+
+.dark .bg-black {
+  background-color: #f5f5f0 !important;
+}
+
+.dark .text-black {
+  color: #f5f5f0 !important;
+}
+
+.dark .text-white {
+  color: #101010 !important;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-600 {
+  color: #c9c9c9 !important;
+}
+
+.dark .border-black {
+  border-color: #f5f5f0 !important;
+}
+
+.dark .border-gray-400 {
+  border-color: #bdbdbd !important;
+}
+
+.dark select,
+.dark input,
+.dark textarea {
+  color: #f5f5f0;
+}
+
+/* Keep login hero text readable regardless of global dark overrides */

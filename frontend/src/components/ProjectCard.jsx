@@ -1,7 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, isAdmin, onDelete }) {
   const navigate = useNavigate();
+
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    if (!window.confirm('Delete this project?')) return;
+    onDelete(project.id);
+  };
 
   return (
     <div
@@ -34,9 +40,19 @@ export default function ProjectCard({ project }) {
       </div>
 
       <div className="mt-3">
-        <span className="font-mono text-xs font-bold hover:underline">
+        <div className="flex items-center justify-between gap-2">
+          <span className="font-mono text-xs font-bold hover:underline">
             VIEW PROJECT
-        </span>
+          </span>
+          {isAdmin && (
+            <button
+              onClick={handleDelete}
+              className="border-2 border-black bg-white text-black font-mono font-bold text-[10px] px-2 py-0.5 hover:bg-black hover:text-white transition-colors"
+            >
+              DELETE
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

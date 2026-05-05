@@ -29,22 +29,14 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-paper flex items-center justify-center p-4 noise-bg">
-      {/* Decorative elements */}
-      <div className="fixed top-8 left-8 font-heading font-black text-6xl text-black opacity-5 select-none pointer-events-none">
-        TTM
-      </div>
-      <div className="fixed bottom-8 right-8 font-heading font-black text-6xl text-black opacity-5 select-none pointer-events-none rotate-180">
-        TTM
-      </div>
-
+    <div className="min-h-screen bg-paper flex items-center justify-center p-4 noise-bg relative">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="font-heading font-black text-5xl uppercase leading-none mb-1">
+          <h1 className="font-heading font-black text-5xl uppercase leading-none mb-1 text-black">
             SIGN IN.
           </h1>
-          <p className="font-mono text-sm text-gray-600">// access your workspace</p>
+          <p className="font-mono text-sm text-black">// access your workspace</p>
         </div>
 
         {/* Card */}
@@ -100,9 +92,9 @@ export default function Login() {
           </form>
         </div>
 
-        <p className="mt-4 text-center font-mono text-sm">
+        <p className="mt-4 text-center font-mono text-sm text-black">
           No account?{' '}
-          <Link to="/signup" className="font-bold underline hover:no-underline">
+          <Link to="/signup" className="font-bold underline hover:no-underline text-black">
             CREATE ONE
           </Link>
         </p>

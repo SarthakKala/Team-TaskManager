@@ -38,6 +38,15 @@ export default function Projects() {
     }
   };
 
+  const handleDeleteProject = async (projectId) => {
+    try {
+      await api.delete(`/projects/${projectId}`);
+      setProjects((prev) => prev.filter((project) => project.id !== projectId));
+    } catch (err) {
+      alert(err.response?.data?.message || 'Failed to delete project');
+    }
+  };
+
   return (
     <div className="flex min-h-screen bg-paper">
       <Sidebar />
@@ -74,7 +83,12 @@ export default function Projects() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isAdmin={isAdmin}
+                onDelete={handleDeleteProject}
+              />
             ))}
           </div>
         )}
@@ -127,7 +141,7 @@ export default function Projects() {
               className="flex-1 border-2 border-black bg-black text-white font-mono font-bold text-sm py-2 hover:bg-white hover:text-black transition-colors disabled:opacity-50"
               style={{ boxShadow: '3px 3px 0px #555' }}
             >
-              {submitting ? 'CREATING...' : 'CREATE ->'}
+              {submitting ? 'CREATING...' : 'CREATE'}
             </button>
           </div>
         </form>

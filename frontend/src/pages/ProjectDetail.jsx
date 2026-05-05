@@ -113,6 +113,16 @@ export default function ProjectDetail() {
     }
   };
 
+  const handleDeleteProject = async () => {
+    if (!window.confirm('Delete this project? This action cannot be undone.')) return;
+    try {
+      await api.delete(`/projects/${id}`);
+      navigate('/projects');
+    } catch (err) {
+      alert(err.response?.data?.message || 'Failed to delete project');
+    }
+  };
+
   const filteredTasks = project?.tasks?.filter(
     (t) => activeFilter === 'ALL' || t.status === activeFilter
   ) || [];
@@ -161,6 +171,15 @@ export default function ProjectDetail() {
               <span className="font-mono text-xs border-2 border-black px-2 py-1">
                 {project.members?.length || 0} MEMBERS
               </span>
+              {isAdmin && (
+                <button
+                  onClick={handleDeleteProject}
+                  className="font-mono text-xs font-bold border-2 border-black bg-white text-black px-3 py-1 hover:bg-black hover:text-white transition-colors"
+                  style={{ boxShadow: '2px 2px 0px #000' }}
+                >
+                  DELETE PROJECT
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -357,7 +376,7 @@ export default function ProjectDetail() {
               className="flex-1 border-2 border-black bg-black text-white font-mono font-bold text-sm py-2 hover:bg-white hover:text-black transition-colors disabled:opacity-50"
               style={{ boxShadow: '3px 3px 0px #555' }}
             >
-              {taskSubmitting ? 'ADDING...' : 'ADD TASK ->'}
+              {taskSubmitting ? 'ADDING...' : 'ADD TASK'}
             </button>
           </div>
         </form>
@@ -423,7 +442,7 @@ export default function ProjectDetail() {
               className="flex-1 border-2 border-black bg-black text-white font-mono font-bold text-sm py-2 hover:bg-white hover:text-black transition-colors disabled:opacity-50"
               style={{ boxShadow: '3px 3px 0px #555' }}
             >
-              {memberSubmitting ? 'ADDING...' : 'ADD ->'}
+              {memberSubmitting ? 'ADDING...' : 'ADD'}
             </button>
           </div>
         </form>
