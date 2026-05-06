@@ -2,11 +2,7 @@
 
 **A simple web app for teams to organize projects, assign work, and track progress in one place.**
 
----
-
-## In plain English
-
-If you are **not** a developer: this is like a shared workspace where a **team lead or admin** can create **projects**, add **team members**, and create **tasks**. Each task can be assigned to someone and marked as *to do*, *in progress*, *done*, or *overdue*. Everyone signs in with their own account, so people only see what they are allowed to see.
+In simple language: this is like a shared workspace where a **team lead or admin** can create **projects**, add **team members**, and create **tasks**. Each task can be assigned to someone and marked as *to do*, *in progress*, *done*, or *overdue*. Everyone signs in with their own account, so people only see what they are allowed to see.
 
 **Typical use:** a small team (club, startup, class project) that wants a lightweight alternative to spreadsheets for knowing *who does what* and *how far along things are*.
 
@@ -32,7 +28,7 @@ If you are **not** a developer: this is like a shared workspace where a **team l
 
 ---
 
-## Tech stack (for developers)
+## Tech stack
 
 | Layer | Choice |
 |-------|--------|
@@ -59,7 +55,7 @@ Run **backend** and **frontend** as two separate processes during development.
 
 ---
 
-## Run it on your computer
+## Run it locally
 
 You need **Node.js** (LTS recommended) and a **PostgreSQL** database URL.
 
@@ -155,21 +151,4 @@ Protected (requires `Authorization: Bearer <token>`):
 - `GET /api/auth/me` — current user  
 - Projects, tasks, dashboard — see routes under `backend/src/routes/` for the full list.
 
----
 
-## Deploying (high level)
-
-1. Create a Postgres database (e.g. Neon) and note `DATABASE_URL`.  
-2. Deploy the **backend**: set env vars, run `prisma generate` / migrations as your host requires, then start `node src/index.js` (or your platform’s start command).  
-3. Deploy the **frontend**: set `VITE_API_URL` to your **public** backend URL including `/api`.  
-4. Update backend `FRONTEND_URL` to your live site URL so the browser can call the API.
-
----
-
-## License
-
-Add a license file if you plan to open-source this repository.
-
----
-
-*Questions or improvements — open an issue or submit a pull request.*
